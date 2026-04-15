@@ -1,2 +1,140 @@
 # kRaWS2BETS
 KRAWS2 SLOTS
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kRaWS2 Ultimate Funnel</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;background:#050507;color:white}
+
+.video-bg{position:fixed;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.25}
+.overlay{position:fixed;width:100%;height:100%;background:radial-gradient(circle,#111,#050507);z-index:-1}
+
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px}
+
+h1{font-size:3rem;font-weight:800}
+h2{margin-bottom:10px}
+p{color:#aaa}
+
+.btn{margin:10px;padding:15px 30px;border:none;border-radius:12px;font-weight:600;cursor:pointer}
+.btn-primary{background:linear-gradient(45deg,#7B3FE4,#00FF88);box-shadow:0 0 20px rgba(123,63,228,.7)}
+
+.section{padding:80px 20px;text-align:center}
+
+.casino{margin:40px auto;max-width:800px;padding:30px;border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,.1)}
+
+.badge{background:#00FF88;color:black;padding:5px 10px;border-radius:8px;font-size:.7rem;margin-bottom:10px;display:inline-block}
+
+.live{max-width:800px;margin:40px auto}
+
+.timer{margin-top:10px;color:#00FF88}
+
+.popup{position:fixed;bottom:80px;right:20px;background:#111;padding:15px;border-radius:10px}
+
+.floating{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#00FF88;color:black;padding:15px 30px;border-radius:30px;font-weight:700}
+
+.vip{background:linear-gradient(45deg,#FFD700,#7B3FE4);padding:40px;border-radius:20px;margin:40px auto;max-width:800px;color:black}
+
+</style>
+</head>
+<body>
+
+<video class="video-bg" autoplay muted loop>
+<source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="hero">
+<h1>🎰 GANHAR NO CASINO COMEÇA AQUI</h1>
+<p>Bónus exclusivos + ganhos reais AO VIVO</p>
+<a href="#ezz"><button class="btn btn-primary" onclick="track('hero_click')">ENTRAR AGORA</button></a>
+<div class="timer" id="countdown"></div>
+</div>
+
+<div class="section live">
+<h2>🔴 LIVE AGORA</h2>
+<iframe src="https://player.twitch.tv/?channel=kraws2&parent=localhost" height="400" width="100%"></iframe>
+</div>
+
+<div id="ezz" class="section">
+<div class="casino">
+<div class="badge">🔥 MELHOR ESCOLHA</div>
+<h2>EZZ CASINO</h2>
+<p>🎁 Código: <b>BRAWNA</b></p>
+<a href="https://ezz.casino/pt?invite=brawna" onclick="track('ezz')"><button class="btn btn-primary">JOGAR AGORA</button></a>
+</div>
+</div>
+
+<div class="section">
+<div class="casino">
+<div class="badge">💎 PREMIUM</div>
+<h2>MOSTBET</h2>
+<p>🎁 Código: <b>GodeNN</b></p>
+<a href="https://mloz82mb.com/9sWU" onclick="track('mostbet')"><button class="btn btn-primary">ATIVAR BÓNUS</button></a>
+</div>
+</div>
+
+<div class="section">
+<div class="casino">
+<div class="badge">🚀 INSANO</div>
+<h2>CASABET</h2>
+<a href="https://record.joinaff.com/_YsIVTPjPbrDoaZCxzaKTwGNd7ZgqdRLk/1/" onclick="track('casabet')"><button class="btn btn-primary">APROVEITAR</button></a>
+</div>
+</div>
+
+<!-- VIP CLUB -->
+<div class="section">
+<div class="vip">
+<h2>💎 VIP CLUB kRaWS2</h2>
+<p>Acesso a bónus exclusivos, estratégias e alertas de ganhos.</p>
+<input type="text" placeholder="O teu email" id="vipEmail" style="padding:10px;border:none;border-radius:8px;margin-top:10px">
+<br>
+<button class="btn" onclick="joinVIP()">ENTRAR NO VIP</button>
+<p id="vipMsg"></p>
+</div>
+</div>
+
+<div class="floating">🎰 JOGAR AGORA</div>
+<div class="popup" id="popup"></div>
+
+<script>
+// TRACKING
+function track(button){
+let clicks = JSON.parse(localStorage.getItem('clicks')||'{}');
+clicks[button] = (clicks[button]||0)+1;
+localStorage.setItem('clicks', JSON.stringify(clicks));
+console.log('Tracking:', clicks);
+}
+
+// VIP
+function joinVIP(){
+let email = document.getElementById('vipEmail').value;
+if(email){
+localStorage.setItem('vipUser', email);
+document.getElementById('vipMsg').innerText = '🔥 Entraste no VIP!';
+}
+}
+
+// POPUP
+const names=["João","Miguel","Rui","Carlos","Pedro"];
+setInterval(()=>{
+const name=names[Math.floor(Math.random()*names.length)];
+document.getElementById("popup").innerText=`🔥 ${name} registou-se agora`;
+},4000);
+
+// TIMER
+let t=300;
+setInterval(()=>{
+let m=Math.floor(t/60),s=t%60;
+document.getElementById("countdown").innerText=`⏳ Oferta termina em ${m}:${s<10?"0"+s:s}`;
+t--; if(t<0)t=300;
+},1000);
+</script>
+
+</body>
+</html>
